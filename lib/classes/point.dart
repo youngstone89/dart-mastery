@@ -15,4 +15,16 @@ class Point {
 
   // redirecting constructors
   Point.alongXAxis(double x) : this(x, 0);
+
+  // initializer list
+  Point.fromJson(Map<String, double> json)
+      : x = json['x']!,
+        y = json['y']! {
+    print('In Point.fromJson(): ($x, $y)');
+  }
+
+  // validate inputs
+  Point.withAssert(this.x, this.y) : assert(x! >= 0) {
+    print('In Point.withAssert(): ($x, $y)');
+  }
 }
